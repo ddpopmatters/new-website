@@ -1,0 +1,15 @@
+/**
+ * PM Typography
+ *
+ * Body:    Merriweather (Google Fonts — 300, 400, 700)
+ * Heading: Neue Plak (commercial, licensed by PM)
+ *          Dev substitute: BG Neue Plak Extended from cdnfonts (same visual)
+ *          Production: replace the cdnfonts import with @font-face declarations
+ *          pointing to WOFF2 files exported from the WP theme fonts/ directory.
+ */
+
+/* Merriweather — body text */
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap");
+
+/* BG Neue Plak Extended — dev substitute for Neue Plak */
+@import url("https://fonts.cdnfonts.com/css/bg-neue-plak-extended");
