@@ -23,7 +23,7 @@ import resolveUrl from '@/lib/resolveUrl'
 const singletonTypes = ['site']
 
 export default defineConfig({
-	title: 'SanityPress',
+	title: 'Population Matters',
 	icon,
 	projectId,
 	dataset,
@@ -50,7 +50,7 @@ export default defineConfig({
 		codeInput(),
 		documentInternationalization({
 			supportedLanguages,
-			schemaTypes: ['page', 'blog.post'],
+			schemaTypes: ['page'],
 		}),
 	],
 
@@ -63,9 +63,17 @@ export default defineConfig({
 	},
 	document: {
 		productionUrl: async (prev, { document }) => {
-			if (['page', 'blog.post'].includes(document?._type)) {
+			const base = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+			const slug = (document as any)?.metadata?.slug?.current
+			if (document?._type === 'page') {
 				return resolveUrl(document as Sanity.PageBase, { base: true })
 			}
+			if (document?._type === 'pm.article' && slug) return `${base}/news/${slug}`
+			if (document?._type === 'pm.issuePage' && slug) return `${base}/why-population-matters/${slug}`
+			if (document?._type === 'pm.campaignPage' && slug) return `${base}/campaigns/${slug}`
+			if (document?._type === 'pm.resource' && slug) return `${base}/resources/${slug}`
+			if (document?._type === 'pm.projectShowcase' && slug) return `${base}/projects/${slug}`
+			if (document?._type === 'pm.landingPage' && slug) return `${base}/${slug}`
 			return prev
 		},
 

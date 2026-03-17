@@ -1,39 +1,47 @@
 import { structureTool } from 'sanity/structure'
-import { singleton, group, directory } from './lib/builders'
+import { singleton, group } from './lib/builders'
 import { VscFiles, VscServerProcess } from 'react-icons/vsc'
 
 export const structure = structureTool({
 	structure: (S) =>
 		S.list()
-			.title('Content')
+			.title('Population Matters')
 			.items([
 				singleton(S, 'site', 'Site settings').icon(VscServerProcess),
 				S.divider(),
 
-				S.documentTypeListItem('page').title('All pages').icon(VscFiles),
-				// customize page directories
-				group(S, 'Directories', [
-					directory(S, 'docs', { maxLevel: 1 }).title('Docs'),
-					directory(S, 'docs/modules').title('Docs › Modules'),
+				// ── News & Articles ────────────────────────────────────
+				group(S, 'News & Articles', [
+					S.documentTypeListItem('pm.article').title('Articles'),
+					S.documentTypeListItem('pm.newsCategory').title('Categories'),
 				]),
 
+				// ── Content ────────────────────────────────────────────
+				group(S, 'Content', [
+					S.documentTypeListItem('pm.issuePage').title('Why Population Matters'),
+					S.documentTypeListItem('pm.campaignPage').title('Campaigns'),
+					S.documentTypeListItem('pm.resource').title('Resources'),
+					S.documentTypeListItem('pm.projectShowcase').title('Projects'),
+					S.documentTypeListItem('pm.landingPage').title('Landing pages'),
+				]),
+				S.divider(),
+
+				// ── People ─────────────────────────────────────────────
+				group(S, 'People', [
+					S.documentTypeListItem('pm.teamMember').title('Team'),
+					S.documentTypeListItem('pm.boardMember').title('Board'),
+					S.documentTypeListItem('pm.patron').title('Patrons & Ambassadors'),
+				]),
+				S.divider(),
+
+				// ── Pages & Layout ─────────────────────────────────────
+				S.documentTypeListItem('page').title('Pages').icon(VscFiles),
 				S.documentTypeListItem('global-module').title('Global modules'),
 				S.divider(),
 
-				S.documentTypeListItem('blog.post').title('Blog posts'),
-				S.documentTypeListItem('blog.category').title('Blog categories'),
-				S.divider(),
-
+				// ── Site config ────────────────────────────────────────
 				S.documentTypeListItem('navigation'),
 				S.documentTypeListItem('redirect').title('Redirects'),
-
-				group(S, 'Miscellaneous', [
-					S.documentTypeListItem('announcement').title('Announcements'),
-					S.documentTypeListItem('logo').title('Logos'),
-					S.documentTypeListItem('person').title('People'),
-					S.documentTypeListItem('pricing').title('Pricing tiers'),
-					S.documentTypeListItem('reputation'),
-					S.documentTypeListItem('testimonial').title('Testimonials'),
-				]),
+				S.documentTypeListItem('announcement').title('Announcements'),
 			]),
 })
