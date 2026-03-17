@@ -1,5 +1,5 @@
 {
-	"name": "sanitypress",
+	"name": "population-matters-website",
 	"version": "7.2.4",
 	"description": "An impressive Sanity.io starter template with Next.js 16 and Tailwind 4",
 	"author": "nuotsu <mitchell@nuotsu.dev> (https://nuotsu.dev)",
@@ -13,11 +13,14 @@
 	},
 	"dependencies": {
 		"@portabletext/to-html": "^5.0.0",
+		"@sanity/asset-utils": "^2.3.0",
 		"@sanity/code-input": "^7.0.2",
 		"@sanity/dashboard": "^5.0.1",
 		"@sanity/document-internationalization": "^4.1.1",
 		"@sanity/image-url": "^2.0.2",
 		"@sanity/preview-url-secret": "^4.0.1",
+		"@sanity/types": "^5.16.0",
+		"@sanity/ui": "^3.1.14",
 		"@sanity/vision": "^5.1.0",
 		"@tailwindcss/postcss": "^4.1.18",
 		"@vercel/analytics": "^1.6.1",
@@ -51,5 +54,8 @@
 		"prettier-plugin-tailwindcss": "^0.7.2",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": ["esbuild", "sharp", "@img/sharp-linux-x64", "@img/sharp-linux-arm64"]
 	}
 }
