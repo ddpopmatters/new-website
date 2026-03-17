@@ -4,18 +4,22 @@ import { type SchemaTypeDefinition } from 'sanity'
 import site from './documents/site'
 import page from './documents/page'
 import globalModule from './documents/global-module'
-import blogPost from './documents/blog.post'
-import blogCategory from './documents/blog.category'
 import navigation from './documents/navigation'
+import pmArticle from './documents/pm.article'
+import pmCampaignPage from './documents/pm.campaignPage'
+import pmIssuePage from './documents/pm.issuePage'
+import pmLandingPage from './documents/pm.landingPage'
+import pmNewsCategory from './documents/pm.newsCategory'
+import pmProjectShowcase from './documents/pm.projectShowcase'
+import pmResource from './documents/pm.resource'
 import redirect from './documents/redirect'
 
 // miscellaneous
 import announcement from './misc/announcement'
 import logo from './misc/logo'
-import person from './misc/person'
-import pricing from './misc/pricing'
-import reputation from './misc/reputation'
-import testimonial from './misc/testimonial'
+import pmBoardMember from './misc/pm.boardMember'
+import pmPatron from './misc/pm.patron'
+import pmTeamMember from './misc/pm.teamMember'
 
 // objects
 import cta from './objects/cta'
@@ -57,18 +61,22 @@ export const schemaTypes: SchemaTypeDefinition[] = [
 	site,
 	page,
 	globalModule,
-	blogPost,
-	blogCategory,
 	navigation,
+	pmArticle,
+	pmCampaignPage,
+	pmIssuePage,
+	pmLandingPage,
+	pmNewsCategory,
+	pmProjectShowcase,
+	pmResource,
 
 	// miscellaneous
 	announcement,
 	redirect,
 	logo,
-	person,
-	pricing,
-	reputation,
-	testimonial,
+	pmBoardMember,
+	pmPatron,
+	pmTeamMember,
 
 	// objects
 	cta,
